@@ -1,0 +1,155 @@
+#! C:/Program Files/Nuke10.0v4/nuke-10.0.4.dll -nx
+version 10.0 v4
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="-4" y="-4" w="1928" h="1150" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1257" stretch="1"/>
+            <splitter orientation="2">
+                <split size="644"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="452"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name //many/D/_PROJECT/QT/FrD_shotgunTool/pmBurnIn_SOURCE.nk
+ frame 31
+ last_frame 41
+ lock_range true
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+}
+Read {
+ inputs 0
+ file //many/D/temp/chi/_TEST_SAMPLES/shotgunTool/abcd_sh33a_ren_v03.mov
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ last 45
+ origlast 45
+ origset true
+ mov32_codec {{0} "Apple Animation (appl - rle )"}
+ mov32_pixel_format {{0} "default (RGBA  8-bit)" "RGBA  8-bit"}
+ name Read1
+ xpos -165
+ ypos -316
+}
+Group {
+ name pmBurnIn
+ label (Cover)
+ xpos -165
+ ypos -201
+ addUserKnob {20 User}
+}
+ Rectangle {
+  inputs 0
+  area {270 0 1570 67}
+  color {0 0 0 1}
+  color_panelDropped true
+  name Rectangle1
+  xpos 16
+  ypos -171
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  output rgb
+  maskChannelMask none
+  message "\n\[date \{%d %h %Y %R\}]  FreeD03  "
+  old_message {{10 50 49 32 70 101 98 32 50 48 49 55 32 49 56 58 53 53 32 32 70 114 101 101 68 48 51 32 32}
+    }
+  old_expression_markers {{1 17}
+    }
+  box {0 0 1920 130}
+  xjustify center
+  yjustify center
+  transforms {{0 2}
+    }
+  kern_values {{0 0}
+    }
+  cursor_position 32
+  font {{ Courier : Bold : CourierBold.pfa : 0 }}
+  global_font_scale 0.35
+  leading 0.2
+  scale {1 1}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{869.5 146.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 436 0 0 1 1 0 0 0 0}
+    }
+  color {0.3 0.3 0.3 1}
+  color_panelDropped true
+  name middle
+  xpos 16
+  ypos -125
+ }
+ Input {
+  inputs 0
+  name Input1
+  xpos 126
+  ypos -209
+ }
+ Reformat {
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  name Reformat1
+  xpos 126
+  ypos -163
+ }
+ Crop {
+  box {0 0 1920 1080}
+  name Crop1
+  xpos 126
+  ypos -125
+ }
+ Merge2 {
+  inputs 2
+  output rgb
+  name slate
+  xpos 70
+  ypos -45
+ }
+set N3ae9000 [stack 0]
+ Output {
+  name Output1
+  xpos 70
+  ypos 14
+ }
+push $N3ae9000
+ Viewer {
+  frame_range 1-41
+  name Viewer1
+  xpos -152
+  ypos -69
+ }
+end_group
+Viewer {
+ frame 31
+ frame_range 1-17
+ frame_range_lock true
+ colour_sample_bbox {0.1010416672 -0.4729166627 0.1020833328 -0.4718750119}
+ name Viewer1
+ xpos -381
+ ypos -195
+}
