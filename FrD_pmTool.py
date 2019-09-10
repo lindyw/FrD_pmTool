@@ -24,9 +24,9 @@ global startTime
 
 print ('Loading Shotgun Support')
 global sg
-SERVER_PATH = "https://frd.shotgunstudio.com"
+SERVER_PATH = "https://xyz.shotgunstudio.com" # fake path, due to company's private asset
 SCRIPT_NAME = 'FrD_PMTool'
-API = '4f4e62809aa773e1f48b4602adfcfd83dd9c0c339c980b1d5b6783aa63745f7f'
+API = 'abcdefghijklmnopqrstuvwxyz'; # code with fake API, cuz this is the company's private asset,not gonna disclose in github
 
 custom_ui = uic.loadUiType('FrD_pmTool.ui')[0]
 
